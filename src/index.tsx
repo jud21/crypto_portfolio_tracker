@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Home } from './components/Home';
+import { Home } from './components';
 import reportWebVitals from './reportWebVitals';
+import './styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home title={'Crypto Log In'} />
+    <Home title={'Crypto Compiler'} />
   </React.StrictMode>,
   document.getElementById('root')
 );
