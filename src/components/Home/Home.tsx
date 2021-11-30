@@ -18,15 +18,17 @@ export const Home = ( props:Props ) => {
                 </div>
             </main>
             <div>
-                <form>
-                    <label>Email</label>
-                    <input type="email" name="email"></input>
+                <fieldset>
+                    <form>
+                        <label>Email</label>
+                        <input type="email" name="email"></input>
 
-                    <label>Password</label>
-                    <input type="Password" name="Password"></input>
+                        <label>Password</label>
+                        <input type="Password" name="Password"></input>
 
-                    <input type="submit" value="Continue"></input>
-                </form>
+                        <input type="submit" value="Continue"></input>
+                    </form>
+                </fieldset>
                 <button color='primary'>Make An Account</button>
             </div>
         </div>
