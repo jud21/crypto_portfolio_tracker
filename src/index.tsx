@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './components';
 import { PortPage } from './components';
 import { SignUp } from './components';
@@ -9,9 +9,20 @@ import './styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
-  
-        <Home title={'Crypto Compiler'} />
-      
+    <Router>
+      <Routes>
+
+        <Route path='/' element = {<Home title={'Crypto Collector'} />}>
+        </Route>
+
+        <Route path='/SignUp' element = {<SignUp></SignUp>}>
+        </Route>
+        
+        <Route path='/PortPage' element = {<PortPage></PortPage>}>
+        </Route>
+
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
