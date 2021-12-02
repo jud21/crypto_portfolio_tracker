@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import candlestick from '../../assets/images/candlestick2.jpg';
+import candlestick from '../../assets/images/candlestick3.jpg';
 import { Link } from '@material-ui/core'
 
 const useStyles = makeStyles({

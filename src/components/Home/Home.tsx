@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 })
 
 export const Home = ( props:Props ) => {
-    
+
     const classes = useStyles()
 
     return (
@@ -64,7 +64,7 @@ export const Home = ( props:Props ) => {
                             <label className={classes.labels}>Password</label>
                             <input className={classes.labels} type="Password" name="Password"></input>
 
-                            <input className={classes.labels} type="submit" value="Count Your Stack!"></input>
+                            <input className={classes.labels} type="submit" value="Check Your Stack!"></input>
 
                             <Link to='/SignUp' className={classes.account}>Make An Account</Link>
                         </form>
