@@ -66,8 +66,8 @@ export const PortPage = () => {
    const oneCoinData = coinData[coinId]
 
    const portfolioValue = () => {
-       return quantity * (coinData && coinData?.market_data?.high_24hr?.usd || 1)
-   };
+       return quantity * (coinData?.market_data?.['high_24h'].usd || 1)
+   }
 
     return (
         <div className={classes.root}>
