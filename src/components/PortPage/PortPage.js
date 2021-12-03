@@ -3,7 +3,7 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/styles';
 import candlestick from '../../assets/images/candlestick2.jpg';
 import { classicNameResolver } from 'typescript';
-import { getData, loadData } from '../../api/api'
+import { getData } from '../../api/api'
 
 const useStyles = makeStyles({
     root: {
@@ -31,6 +31,12 @@ const useStyles = makeStyles({
     },
     red: {
         color: 'red'
+    },
+    represent: {
+        marginLeft: '20px',
+        marginTop: '20px',
+        fontSize: '5rem',
+        fontWeight: 'bolder'
     }
     
 })
@@ -40,15 +46,20 @@ export const PortPage = () => {
     const classes = useStyles()
     const [coinData, setCoinData] = useState({})
     const [coinId, setCoinId] = useState('')
+    const [quantity, setQuantity] = useState('')
 
 
     const onGetDataClick = async () => {
         const data = await getData(coinId)
-        setCoinData({ [coinId]: data })
+        setCoinData( data )
     }
     console.log(coinData)
 
+   // const oneCoinData = coinData[coinId]
 
+//    const portfolioValue = () => {
+//        quantity * coinData.price
+//    }
 
     return (
         <div className={classes.root}>
@@ -64,9 +75,18 @@ export const PortPage = () => {
                     value={coinId}
                 ></input>
                 <label className={classes.form}>Quantity</label>
-                <input className={classes.form} type="number" name="quantity"></input>
+                <input 
+                    className={classes.form} 
+                    type="number"
+                    name="quantity">
+                    {/* onChange={e => { setQuantity(e.currentTarget.value) } }
+                    value={quantity} */}
+                </input>
                 <input className={classes.form} type="submit" onClick={onGetDataClick} value="Add Coin(s)"></input>
                 <hr className={classes.line}></hr>
+                <div className={classes.represent}>
+                    {coinData.coingecko_rank}
+                </div>
             </div>
         </div>
     )

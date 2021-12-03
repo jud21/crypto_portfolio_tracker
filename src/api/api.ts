@@ -7,13 +7,13 @@ const getData = async (id: string) => {
      return response.data
  };
 
-const loadData = async() => {
-    let coinData = await getData();
+// const loadData = async() => {
+//     let coinData = await getData();
 
     // let coin = api pathway
 
     // let value = api pathway
-}
+// }
 
 const myCoinValue = () => {
     //quantity * current coin value
@@ -27,4 +27,4 @@ const deleteData = () => {
     //Delete a coin from personal database
 }
 
-export { getData, loadData }
+export { getData }
