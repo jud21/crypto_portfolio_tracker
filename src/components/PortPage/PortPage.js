@@ -33,13 +33,21 @@ const useStyles = makeStyles({
         color: 'red'
     },
     represent: {
-        marginLeft: '20px',
+        marginLeft: '250px',
         marginTop: '20px',
         fontSize: '5rem',
-        fontWeight: 'bolder'
+        fontWeight: 'bolder',
+        color: '#1e4d2b',
+        fontFamily: 'OCR A Std, monospace',
+    },
+    portValue: {
+        marginLeft: '12vw',
+        marginTop: '20px',
+        color: '#1e4d2b',
+        fontFamily: 'OCR A Std, monospace'
     }
     
-})
+});
 
 export const PortPage = () => {
 
@@ -52,14 +60,14 @@ export const PortPage = () => {
     const onGetDataClick = async () => {
         const data = await getData(coinId)
         setCoinData( data )
-    }
+    };
     console.log(coinData)
 
-   // const oneCoinData = coinData[coinId]
+   const oneCoinData = coinData[coinId]
 
-//    const portfolioValue = () => {
-//        quantity * coinData.price
-//    }
+   const portfolioValue = () => {
+       return quantity * (coinData && coinData?.market_data?.high_24hr?.usd || 1)
+   };
 
     return (
         <div className={classes.root}>
@@ -78,16 +86,19 @@ export const PortPage = () => {
                 <input 
                     className={classes.form} 
                     type="number"
-                    name="quantity">
-                    {/* onChange={e => { setQuantity(e.currentTarget.value) } }
-                    value={quantity} */}
+                    name="quantity"
+                    onChange={e => { setQuantity(e.currentTarget.value) } }
+                    value={quantity}>
                 </input>
                 <input className={classes.form} type="submit" onClick={onGetDataClick} value="Add Coin(s)"></input>
                 <hr className={classes.line}></hr>
+                <h2 className={classes.portValue}>Your Portfolio's USD Value is:</h2>
                 <div className={classes.represent}>
-                    {coinData.coingecko_rank}
+                    {portfolioValue()}
                 </div>
             </div>
         </div>
+        //coinData.tickers[5].converted_last.usd
+        //?.market_data?.high_24h?.usd
     )
 }
